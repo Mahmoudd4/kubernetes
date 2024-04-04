@@ -50,10 +50,7 @@ sed -i -e 's|<<\(.*\)\.\(.*\)>>|link:../definitions#_\L\1_\2\E[\1.\2]|g' ./paths
 
 # fix the link to <<any>>
 sed -i -e 's|<<any>>|link:#_any[any]|g' ./definitions.adoc
-sed -i -e 's|<<any>>|link:../definitions#_any[any]|g' ./paths.adoc
-
-# change the title of paths.adoc from "paths" to "operations"
-sed -i 's|== Paths|== Operations|g' ./paths.adoc
+sed -i -e 's|<<any>>|link:../definitions#_any[any]|sed -i 's|== Paths|== Operations|g' ./paths.adoc
 
 # $$ has special meaning in asciidoc, we need to escape it
 sed -i 's|\$\$|+++$$+++|g' ./definitions.adoc
